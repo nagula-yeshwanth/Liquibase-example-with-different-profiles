@@ -1,0 +1,32 @@
+
+databaseChangeLog:
+  -
+#  - property:
+#      name: liquibase.logicalFilePath
+#      value: db/changelog/changelog-master.yml
+
+  # creation of table customer
+  - include:
+      file: changelog-1.0.yml
+      relativeToChangelogFile: true
+
+  # adding phone_number column to customer table
+  - include:
+      file: changelog-2.0.yml
+      relativeToChangelogFile: true
+
+    # adding index on email field and constraint on phone_number to customer table
+  - include:
+      file: changelog-3.0.yml
+      relativeToChangelogFile: true
+
+  # adding data to customer table if the context is 'qa'
+  - include:
+      file: changelog-4.0.yml
+      relativeToChangelogFile: true
+
+
+#  - includeAll:
+#      path: db/changelog/changes
+#      relativeToChangelogFile: true
+

@@ -1,0 +1,54 @@
+# Initial changelog creating customer table
+# Generated to match com.liquibase.example.Customer entity
+
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: yeshwanth
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          - tableExists:
+              tableName: customer
+      runAlways: true
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+      rollback:
+        - dropTable:
+            tableName: customer
+
+  - changeSet:
+      id: 2
+      author: nye018
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          - columnExists:
+              tableName: customer
+              columnName: phone
+      changes:
+        - addColumn:
+            tableName: customer
+            columns:
+              - column:
+                  name: phone
+                  type: VARCHAR(20)
+      rollback:
+        - dropColumn:
+            columnName: phone
+            tableName: customer

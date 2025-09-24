@@ -1,0 +1,38 @@
+
+
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: nye018
+      changes:
+        - dropColumn:
+            columnName: address
+            tableName: customer
+      rollback:
+        - addColumn:
+            tableName: customer
+            columns:
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 7
+      author: sreeja
+      changes:
+        - addColumn:
+            tableName: customer
+            columns:
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  name: zipcode
+                  type: VARCHAR(10)
+      rollback:
+          - dropColumn:
+              columnName: address
+              tableName: customer
+          - dropColumn:
+              columnName: zipcode
+              tableName: customer

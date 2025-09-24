@@ -1,0 +1,46 @@
+
+
+databaseChangeLog:
+    - changeSet:
+        id: 3
+        author: yeshwanth
+        changes:
+          - dropColumn:
+              columnName: phone
+              tableName: customer
+        rollback:
+          - addColumn:
+              tableName: customer
+              columns:
+                - column:
+                    name: phone
+                    type: VARCHAR(20)
+#    - changeSet:
+#        id: 4
+#        author: yeshwanth
+#        changes:
+#          - dropColumn:
+#              columnName: phone
+#              tableName: customer
+#        rollback:
+#          - addColumn:
+#              tableName: customer
+#              columns:
+#                - column:
+#                    name: phone
+#                    type: VARCHAR(20)
+
+    - changeSet:
+        id: 5
+        author: yeshwanth
+        changes:
+            - addColumn:
+                tableName: customer
+                columns:
+                  - column:
+                      name: address
+                      type: VARCHAR(255)
+        rollback:
+            - dropColumn:
+                columnName: address
+                tableName: customer

@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: dev
+      runAlways: true
+      context: development
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                tableName: customer
+                indexName: idx_customer_email
+      changes:
+        - createIndex:
+            indexName: idx_customer_email
+            tableName: customer
+            columns:
+              - column:
+                  name: email
+      rollback:
+        - dropIndex:
+            indexName: idx_customer_email
+            tableName: customer
+
+  - changeSet:
+      id: 4
+      author: dev
+      runAlways: true
+      context: development
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - uniqueConstraintExists:
+                tableName: customer
+                constraintName: chk_customer_phone_number
+      changes:
+        - addUniqueConstraint:
+            columnNames: phone_number
+            constraintName: chk_customer_phone_number
+            tableName: customer
+      rollback:
+        - dropUniqueConstraint:
+            constraintName: chk_customer_phone_number
+            tableName: customer

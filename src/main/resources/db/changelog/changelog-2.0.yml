@@ -1,0 +1,26 @@
+databaseChangeLog :
+  - changeSet :
+      id : 2
+      author : dev
+      runAlways : true
+      context : development
+      preConditions :
+        - onFail : MARK_RAN
+        - not :
+            - columnExists :
+                tableName : customer
+                columnName : phone_number
+      changes :
+        - addColumn :
+            tableName : customer
+            columns :
+              - column :
+                  name : phone_number
+                  type : VARCHAR(15)
+                  defaultValue : 'xxxxxxxxxx'
+      rollback :
+        - dropColumn :
+            tableName : customer
+            columnName : phone_number
+
+

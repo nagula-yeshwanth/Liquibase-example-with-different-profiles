@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: dev
+      context: qa
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: "0"
+            sql: |
+              SELECT COUNT(*) FROM customer WHERE email = 'alice.johnson@example.com'
+      changes:
+        - loadData:
+            tableName: customer
+            file: classpath:data/customer-data.csv
+            separator: ","
+            encoding: UTF-8
+      rollback:
+        - delete:
+            tableName: customer
