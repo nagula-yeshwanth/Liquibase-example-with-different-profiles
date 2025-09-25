@@ -22,6 +22,6 @@ spring:
     change-log: classpath:db/changelog/changelog-master.yml
     contexts: qa
 
-  logging:
-    level:
-      root: WARN
+logging:
+  level:
+    root: WARN
