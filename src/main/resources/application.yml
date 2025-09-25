@@ -6,4 +6,4 @@ spring:
     name: example
 
   profiles:
-    active: development
+    active: production
