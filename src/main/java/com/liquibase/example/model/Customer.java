@@ -1,10 +1,9 @@
-package com.liquibase.example;
+package com.liquibase.example.model;
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @Data

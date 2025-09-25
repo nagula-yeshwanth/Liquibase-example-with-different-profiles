@@ -1,5 +1,7 @@
-package com.liquibase.example;
+package com.liquibase.example.service;
 
+import com.liquibase.example.model.Customer;
+import com.liquibase.example.repositry.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

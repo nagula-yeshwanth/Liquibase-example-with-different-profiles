@@ -1,5 +1,6 @@
-package com.liquibase.example;
+package com.liquibase.example.repositry;
 
+import com.liquibase.example.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

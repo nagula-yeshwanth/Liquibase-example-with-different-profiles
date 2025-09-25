@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: qa
+      on-profile: production
   datasource:
     url: jdbc:sqlserver://localhost:1433;databaseName=liquibase;encrypt=true;trustServerCertificate=true
     username: user
@@ -20,8 +20,8 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/changelog-master.yml
-    contexts: qa
+    contexts: development
 
 logging:
   level:
-    root: INFO
+    root: WARN

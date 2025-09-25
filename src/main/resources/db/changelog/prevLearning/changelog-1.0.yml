@@ -1,5 +1,5 @@
 # Initial changelog creating customer table
-# Generated to match com.liquibase.example.Customer entity
+# Generated to match com.liquibase.example.model.Customer entity
 
 databaseChangeLog:
   - changeSet:

@@ -24,4 +24,4 @@ spring:
 
 logging:
   level:
-    root: WARN
+    root: DEBUG

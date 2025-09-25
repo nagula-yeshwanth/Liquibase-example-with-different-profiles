@@ -1,6 +1,8 @@
-package com.liquibase.example;
+package com.liquibase.example.controller;
 
 
+import com.liquibase.example.model.Customer;
+import com.liquibase.example.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
